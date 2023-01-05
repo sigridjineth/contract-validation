@@ -1,6 +1,6 @@
-import { hasFunction } from "./hasFunction.js";
+const { hasFunction } = require("../index");
 
-export async function checkABI(provider, address, abi) {
+module.exports = async function checkABI(provider, address, abi) {
     let isCompatible = true;
 
     for (const functionDefinition of abi) {

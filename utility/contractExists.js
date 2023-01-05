@@ -1,6 +1,6 @@
-import { ethers } from "ethers";
+const ethers = require("ethers");
 
-export async function contractExists(contractAddress, providerURL) {
+module.exports = async function contractExists(contractAddress, providerURL) {
     // Connect to the Ethereum network using the provided RPC endpoint
     const provider = new ethers.providers.JsonRpcProvider(providerURL);
 

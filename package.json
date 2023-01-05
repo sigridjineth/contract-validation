@@ -1,9 +1,10 @@
 {
-  "name": "contract-validator",
-  "version": "0.0.1",
+  "name": "@sigridjin/contract-validator",
+  "version": "0.1.0",
   "description": "Simple validator to your contract using ethers.js",
   "main": "index.js",
   "scripts": {
+    "build": "babel utility -d lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,7 +12,7 @@
     "url": "git+https://github.com/sigridjineth/contract-validation.git"
   },
   "author": "Sigrid Jin",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sigridjineth/contract-validation/issues"
   },
@@ -19,9 +20,25 @@
   "files": [
     "utility/contractExists.js",
     "utility/hasFunction.js",
-    "utility/checkABI.js"
+    "utility/checkABI.js",
+    "index.js"
   ],
   "dependencies": {
     "ethers": "^5.7.2"
-  }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [
+    "solidity",
+    "contract",
+    "blockchain",
+    "ethereum",
+    "ethers.js"
+  ]
 }

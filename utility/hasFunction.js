@@ -1,6 +1,6 @@
-import { ethers } from "ethers";
+const ethers = require("ethers");
 
-export async function hasFunction(provider, address, abi, functionSignature) {
+module.exports = async function hasFunction(provider, address, abi, functionSignature) {
     const bytecode = await provider.getCode(address);
 
     // No code : function is definitely not there
