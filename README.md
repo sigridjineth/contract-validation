@@ -12,14 +12,14 @@ You need to install `ethers.js` before using the simple module.
 npm i @sigridjin/contract-validator
 ```
 
-## Example (Evmos)
+## Example
 * Use ABI below on the Test ABI.
 ```
 const contractValidator = require('@sigridjin/contract-validator');
 const ethers = require('ethers');
 const contractAddress = '0x8EA92630207ED39Af4B579b246baB08c7Ae11a7D';
 // see more provider URL on AllThatNode https://www.allthatnode.com/
-const providerURL = 'https://eth.bd.evmos.dev:8545';
+const providerURL = 'https://ethereum-goerli-rpc.allthatnode.com';
 const provider = new ethers.providers.JsonRpcProvider(providerURL);
 
 const doesExist = await contractValidator.contractExists(contractAddress, providerURL);
