@@ -3,9 +3,11 @@ Simple validator to your contract using ethers.js ([original](https://gist.githu
 
 ## Example
 ```
+const contractValidator = require('contract-validator');
+
 const provider = new providers.JsonRpcProvider('https://eth.bd.evmos.org:8545');
 
-const functionExists = await hasFunction(provider, ADDRESS, ABI, "functionA()");
+const functionExists = await contractValidator.hasFunction(provider, ADDRESS, ABI, "functionA()");
 
 if (functionExists) {
   console.log("functionA() is likely to be present in the contract");
@@ -13,11 +15,11 @@ if (functionExists) {
   console.log("functionA() is definitely not present in the contract");
 }
 
-contractExists('contract_addr').then(exists => {
+contractValidator.contractExists('contract_addr').then(exists => {
   console.log(exists ? 'Contract exists' : 'Contract does not exist');
 });
 
-const abiIsCompatible = await checkABI(provider, ADDRESS, ABI);
+const abiIsCompatible = await contractValidator.checkABI(provider, ADDRESS, ABI);
 if (abiIsCompatible) {
   console.log("The ABI is likely to be compatible with the contract");
 } else {
