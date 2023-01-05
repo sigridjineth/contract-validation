@@ -1,8 +1,11 @@
 # contract-validator
-Simple validator to your EVM-compatible contract using ethers.js which is [npm module](https://www.npmjs.com/package/@sigridjin/contract-validator)
+Check if your EVM contracts, using ethers.js, have the specified method signature, are compatible with the given ABI, and exist on the network. (Registered as [npm module](https://www.npmjs.com/package/@sigridjin/contract-validator))
+
+## Disclaimer
+Further testing is required to determine the full range of functionality and ensure that it is functioning properly in various scenarios.
 
 ## Prerequisite
-* You need to install `ethers.js` before using the simple module.
+You need to install `ethers.js` before using the simple module.
 
 ## Install
 ```
@@ -15,6 +18,7 @@ npm i @sigridjin/contract-validator
 const contractValidator = require('@sigridjin/contract-validator');
 const ethers = require('ethers');
 const contractAddress = '0x8EA92630207ED39Af4B579b246baB08c7Ae11a7D';
+// see more provider URL on AllThatNode https://www.allthatnode.com/
 const providerURL = 'https://eth.bd.evmos.dev:8545';
 const provider = new ethers.providers.JsonRpcProvider(providerURL);
 
