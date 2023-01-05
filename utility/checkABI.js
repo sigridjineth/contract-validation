@@ -1,4 +1,5 @@
-const {hasFunction} = require("../index");
+const hasFunction = require("../utility/hasFunction");
+
 module.exports = async function checkABI(provider, address, abi) {
     let isCompatible = true;
 
@@ -15,11 +16,3 @@ module.exports = async function checkABI(provider, address, abi) {
 
     return isCompatible;
 }
-
-// EXAMPLE
-// const abiIsCompatible = await checkABI(JsonRpcProvider, ADDRESS, ABI);
-// if (abiIsCompatible) {
-//     console.log("The ABI is likely to be compatible with the contract");
-// } else {
-//     console.log("The ABI is definitely not compatible with the contract");
-// }

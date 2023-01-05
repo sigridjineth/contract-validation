@@ -1,7 +1,16 @@
-# contract-validation
-Simple validator to your contract using ethers.js ([original](https://gist.github.com/sigridjineth/ff7806c783fa534473ada622de0faa3f))
+# contract-validator
+Simple validator to your EVM-compatible contract using ethers.js which is [npm module](https://www.npmjs.com/package/@sigridjin/contract-validator)
 
-## Example
+## Prerequisite
+* You need to install `ethers.js` before using the simple module.
+
+## Install
+```
+npm i @sigridjin/contract-validator
+```
+
+## Example (Evmos)
+* Use ABI below on the Test ABI.
 ```
 const contractValidator = require('@sigridjin/contract-validator');
 const ethers = require('ethers');
@@ -12,6 +21,18 @@ const provider = new ethers.providers.JsonRpcProvider(providerURL);
 const doesExist = await contractValidator.contractExists(contractAddress, providerURL);
 console.log(doesExist) // true
 
+const functionExists = await contractValidator.hasFunction(provider, contractAddress, ABI, "functionA()");
+console.log(functionExists) // false
+
+const functionExistsValid = await contractValidator.hasFunction(provider, contractAddress, ABI, "version()");
+console.log(functionExistsValid); // true
+
+const abiIsCompatible = await contractValidator.checkABI(provider, contractAddress, ABI);
+console.log(abiIsCompatible); // true
+```
+
+## Test ABI
+```
 const ABI = [
     {
       "inputs": [
@@ -1008,17 +1029,4 @@ const ABI = [
       "type": "receive"
     }
   ];
-
-const functionExists = await contractValidator.hasFunction(provider, contractAddress, ABI, "functionA()");
-console.log(functionExists) // false
-
-const functionExistsValid = await contractValidator.hasFunction(provider, contractAddress, ABI, "version()");
-console.log(functionExistsValid); // true
-
-const abiIsCompatible = await contractValidator.checkABI(provider, contractAddress, ABI);
-if (abiIsCompatible) {
-  console.log("The ABI is likely to be compatible with the contract");
-} else {
-  console.log("The ABI is definitely not compatible with the contract");
-}
 ```
