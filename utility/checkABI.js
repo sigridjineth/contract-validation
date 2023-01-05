@@ -1,4 +1,4 @@
-const { hasFunction } = require("../index");
+const { hasFunction } = require("./hasFunction");
 
 module.exports = async function checkABI(provider, address, abi) {
     let isCompatible = true;
